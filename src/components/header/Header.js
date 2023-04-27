@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { logo } from '../../assets/index';
-import allItems from '../../constants/index';
+import { allItems } from '../../constants/index';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
