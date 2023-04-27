@@ -6,6 +6,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
+import { productsData } from "./api/api";
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
@@ -24,7 +25,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<Layout/>}>
-        <Route index element={<Home/>}></Route>
+        <Route index element={<Home/>} loader={productsData}></Route>
       </Route>
     )
   );
