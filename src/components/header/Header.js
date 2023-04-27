@@ -5,12 +5,13 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
+import HeaderBottom from './HeaderBottom';
 
 const Header =()=> {
     const [showAll, setShowAll] = useState(false);
 
     return (
-        <div className='w-full'>
+        <div className='w-full sticky top-0 z-50'>
             <div className='w-full bg-amazon_blue text-white px-4 py-3 flex items-center gap-4'>
                 <div className='headerHover'>
                     <img src={logo} alt='amazon logo' className='w-24 mt-2'/>
@@ -61,6 +62,7 @@ const Header =()=> {
                     </p>
                 </div>
             </div>
+            <HeaderBottom/>
         </div>
     )
 };
