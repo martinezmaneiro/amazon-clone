@@ -135,3 +135,161 @@ export const middleList = [
         ]
     },
 ];
+
+export const footerBottomItem = [
+    {
+        _id: 1001,
+        title: 'Amazon Music',
+        description: 'Stream millions of songs',
+    },
+    {
+        _id: 1002,
+        title: 'Amazon Advertising',
+        description: 'Find, attract, and engage customers',
+    },
+    {
+        _id: 1003,
+        title: '6pm',
+        description: 'Score deals on fashion brands',
+    },
+    {
+        _id: 1004,
+        title: 'AbeBooks',
+        description: 'Books, art & collectibles',
+    },
+    {
+        _id: 1005,
+        title: 'ACX',
+        description: 'Audiobook Publishing Made Easy',
+    },
+    {
+        _id: 1006,
+        title: 'Sell on Amazon',
+        description: 'Start a Selling Account',
+    },
+    {
+        _id: 1007,
+        title: 'Amazon Business',
+        description: 'Everything For Your Business',
+    },
+    {
+        _id: 1008,
+        title: 'AmazonGlobal',
+        description: 'Ship Orders Internationally',
+    },
+    {
+        _id: 1009,
+        title: 'Home Services',
+        description: 'Experienced Pros Happiness Guarantee',
+    },
+    {
+        _id: 1010,
+        title: 'Amazon Ignite',
+        description: 'Sell your original Digital Educational Resources',
+    },
+    {
+        _id: 1011,
+        title: 'Amazon Web Services',
+        description: 'Scalable Cloud Computing Services',
+    },
+    {
+        _id: 1012,
+        title: 'Audible',
+        description: 'Listen to Books & Original Audio Performances',
+    },
+    {
+        _id: 1013,
+        title: 'Book Depository',
+        description: 'Books With Free Delivery Worldwide',
+    },
+    {
+        _id: 1014,
+        title: 'Box Office Mojo',
+        description: 'Find Movie Box Office Data',
+    },
+    {
+        _id: 1015,
+        title: 'ComiXology',
+        description: 'Thousands of Digital Comics',
+    },
+    {
+        _id: 1016,
+        title: 'DPReview',
+        description: 'Digital Photography',
+    },
+    {
+        _id: 1017,
+        title: 'Fabric',
+        description: 'Sewing, Quilting & Knitting',
+    },
+    {
+        _id: 1018,
+        title: 'Goodreads',
+        description: 'Book reviews & recommendations',
+    },
+    {
+        _id: 1019,
+        title: 'IMDb',
+        description: 'Movies, TV & Celebrities',
+    },
+    {
+        _id: 1020,
+        title: 'IMDbPro',
+        description: 'Get Info Entertainment Professionals Need',
+    },
+    {
+        _id: 1021,
+        title: 'Kindle Direct Publishing',
+        description: 'Indie Digital & Print Publishing Made Easy',
+    },
+    {
+        _id: 1022,
+        title: 'Prime Video Direct',
+        description: 'Video Distribution Made Easy',
+    },
+    {
+        _id: 1023,
+        title: 'Shopbop',
+        description: 'Designer Fashion Brands',
+    },
+    {
+        _id: 1024,
+        title: 'Woot!',
+        description: 'Deals and Shenanigans',
+    },
+    {
+        _id: 1025,
+        title: 'Zappos',
+        description: 'Shoes & Clothing',
+    },
+    {
+        _id: 1026,
+        title: 'Ring',
+        description: 'Smart Home Security Systems',
+    },
+    {
+        _id: 1027,
+        title: 'eero WiFi',
+        description: 'Stream 4K Video in Every Room',
+    },
+    {
+        _id: 1028,
+        title: 'Blink',
+        description: 'Smart Security for Every Home',
+    },
+    {
+        _id: 1029,
+        title: 'Neighbors App',
+        description: 'Real-Time Crime & Safety Alerts',
+    },
+    {
+        _id: 1030,
+        title: 'Amazon Subscription Boxes',
+        description: 'Top subsciption boxes - right to your door',
+    },
+    {
+        _id: 1031,
+        title: 'PillPack',
+        description: 'Pharmacy Simplified',
+    },
+];
