@@ -57,15 +57,17 @@ const Header =()=> {
                     <p className='text-xs text-lightText font-light'>Returns</p>
                     <p className='text-sm font-semibold -mt-1 text-whiteText'>& Orders</p>
                 </div>
-                <div className='flex items-start justify-center headerHover relative'>
-                    <ShoppingCartIcon/>
-                    <p className='text-xs font-semibold mt-3 text-whiteText'>
-                        Cart
-                        <span className='absolute text-sm -top-1 left-6 font-semibold p-1 h-4 bg-[#F3A847] text-amazon_blue rounded-full flex justify-center items-center'>
-                            {products.length > 0 ? products.length:0}
-                        </span>
-                    </p>
-                </div>
+                <Link to='/cart'>
+                    <div className='flex items-start justify-center headerHover relative'>
+                        <ShoppingCartIcon/>
+                        <p className='text-xs font-semibold mt-3 text-whiteText'>
+                            Cart
+                            <span className='absolute text-sm -top-1 left-6 font-semibold p-1 h-4 bg-[#F3A847] text-amazon_blue rounded-full flex justify-center items-center'>
+                                {products.length > 0 ? products.length:0}
+                            </span>
+                        </p>
+                    </div>
+                </Link>
             </div>
             <HeaderBottom/>
         </div>
