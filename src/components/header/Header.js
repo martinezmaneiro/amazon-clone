@@ -16,7 +16,7 @@ const Header =()=> {
                 <div className='headerHover'>
                     <img src={logo} alt='amazon logo' className='w-24 mt-2'/>
                 </div>
-                <div className='headerHover'>
+                <div className='headerHover hidden mdl:inline-flex'>
                     <LocationOnOutlinedIcon/>
                     <p className='text-sm text-lightText font-light flex flex-col'>
                         Deliver to
@@ -25,7 +25,7 @@ const Header =()=> {
                         </span>
                     </p>
                 </div>
-                <div className='h-10 rounded-md flex flex-grow relative'>
+                <div className='h-10 rounded-md hidden lgl:flex flex-grow relative'>
                     <span onClick={()=>setShowAll(!showAll)} className='w-14 h-full bg-gray-200 hover:bg-gray-300 border-2 cursor-pointer duration-300 text-sm text-amazon_blue font-titleFont flex items-center justify-center rounded-tl-md rounded-bl-md'>
                         All
                         <span>
@@ -45,10 +45,10 @@ const Header =()=> {
                     </span>
                 </div>
                 <div className='flex flex-col items-start justify-center headerHover'>
-                    <p className='text-xs text-lightText font-light'>Hello, sign in</p>
-                    <p className='text-sm font-semibold -mt-1 text-whiteText'>Accounts & Lists <span><ArrowDropDownOutlinedIcon/></span></p>
+                    <p className='text-sm mdl:text-xs text-white mdl:text-lightText font-light'>Hello, sign in</p>
+                    <p className='text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex'>Accounts & Lists <span><ArrowDropDownOutlinedIcon/></span></p>
                 </div>
-                <div className='flex flex-col items-start justify-center headerHover'>
+                <div className='hidden lgl:flex flex-col items-start justify-center headerHover'>
                     <p className='text-xs text-lightText font-light'>Returns</p>
                     <p className='text-sm font-semibold -mt-1 text-whiteText'>& Orders</p>
                 </div>
