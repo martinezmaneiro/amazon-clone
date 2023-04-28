@@ -38,7 +38,7 @@ const HeaderBottom =()=> {
                             <SideNavContent title='Shop By Department' one='Electronics' two='Computers' three='Smart Home'/>
                             <SideNavContent title='Programs & Features' one='Gift Cards' two='Amazon live' three='International Shopping'/>
                             <SideNavContent title='Help & Settings' one='Your Account' two='Customer Service' three='Contact us'/>
-                            <span onClick={() => setSidebar(false)} className='cursor-pointer absolute top-[2px] md:top-0 right-[10vw] md:left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300'>
+                            <span onClick={() => setSidebar(false)} className='cursor-pointer absolute top-[2px] md:top-0 right-[2px] md:left-[360px] w-10 h-10 text-white md:text-black flex items-center justify-center md:border md:bg-gray-200 hover:bg-red-500 hover:text-white duration-300'>
                                 <CloseIcon/>
                             </span>
                         </motion.div>

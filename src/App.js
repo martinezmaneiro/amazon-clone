@@ -26,6 +26,7 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={<Layout/>}>
         <Route index element={<Home/>} loader={productsData}></Route>
+        {/*<Route path='/signin' element={<SignIn/>}></Route>*/}
       </Route>
     )
   );
