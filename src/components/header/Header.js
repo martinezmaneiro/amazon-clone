@@ -1,21 +1,26 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { logo } from '../../assets/index';
 import { allItems } from '../../constants/index';
+import { Link } from "react-router-dom";
+import HeaderBottom from './HeaderBottom';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
-import HeaderBottom from './HeaderBottom';
 
 const Header =()=> {
     const [showAll, setShowAll] = useState(false);
+    const products = useSelector((state)=>state.amazonReducer.products)
 
     return (
         <div className='w-full sticky top-0 z-50'>
             <div className='w-full bg-amazon_blue text-white px-4 py-3 flex items-center gap-4'>
-                <div className='headerHover'>
-                    <img src={logo} alt='amazon logo' className='w-24 mt-2'/>
-                </div>
+                <Link to='/'>
+                    <div className='headerHover'>
+                        <img src={logo} alt='amazon logo' className='w-24 mt-2'/>
+                    </div>
+                </Link>
                 <div className='headerHover hidden mdl:inline-flex'>
                     <LocationOnOutlinedIcon/>
                     <p className='text-sm text-lightText font-light flex flex-col'>
@@ -57,7 +62,7 @@ const Header =()=> {
                     <p className='text-xs font-semibold mt-3 text-whiteText'>
                         Cart
                         <span className='absolute text-sm -top-1 left-6 font-semibold p-1 h-4 bg-[#F3A847] text-amazon_blue rounded-full flex justify-center items-center'>
-                            0
+                            {products.length > 0 ? products.length:0}
                         </span>
                     </p>
                 </div>
