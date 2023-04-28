@@ -29,7 +29,7 @@ const HeaderBottom =()=> {
             {sidebar && (
                 <div className='w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50'>
                     <div className='w-full h-full relative'>
-                        <motion.div ref={ref} initial={{x:-500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.5}} className='md:w-[350px] w-[100%] h-auto bg-white border border-black'>
+                        <motion.div ref={ref} initial={{x:-500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.5}} className='md:w-[350px] w-[100%] h-auto md:h-[100%] bg-white border border-black'>
                             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
                                 <AccountCircleIcon/>
                                 <h3 className='font-titleFont font-bold text-lg tracking-wide'>Hello, Sign In</h3>
@@ -38,7 +38,7 @@ const HeaderBottom =()=> {
                             <SideNavContent title='Shop By Department' one='Electronics' two='Computers' three='Smart Home'/>
                             <SideNavContent title='Programs & Features' one='Gift Cards' two='Amazon live' three='International Shopping'/>
                             <SideNavContent title='Help & Settings' one='Your Account' two='Customer Service' three='Contact us'/>
-                            <span onClick={() => setSidebar(false)} className='cursor-pointer absolute top-[2px] md:top-0 left-[70%] md:left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300'>
+                            <span onClick={() => setSidebar(false)} className='cursor-pointer absolute top-[2px] md:top-0 right-[10vw] md:left-[360px] w-10 h-10 text-black flex items-center justify-center border bg-gray-200 hover:bg-red-500 hover:text-white duration-300'>
                                 <CloseIcon/>
                             </span>
                         </motion.div>

@@ -10,7 +10,7 @@ const Products = () => {
     const productData = data.data;
 
     return (
-        <div className='max-w-screen-2xl mx-auto grid grid-cols-4 gap-10 px-4'>
+        <div className='max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-10 px-4'>
             {
                 productData.map((item) => (
                     <div key={item.id} className='bg-white h-auto border-[1px] border-gray-200 py-8 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4'>
