@@ -12,6 +12,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import SignIn from './pages/SignIn';
 
 const Layout =()=> {
   return (
@@ -27,10 +28,12 @@ const Layout =()=> {
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path='/' element={<Layout/>}>
-        <Route index element={<Home/>} loader={productsData}></Route>
-        {/*<Route path='/signin' element={<SignIn/>}></Route>*/}
-        <Route path='/cart' element={<Cart/>}></Route>
+      <Route>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home/>} loader={productsData}></Route>
+          <Route path='/cart' element={<Cart/>}></Route>
+        </Route>
+        <Route path='/signin' element={<SignIn/>}></Route>
       </Route>
     )
   );
@@ -38,7 +41,6 @@ function App() {
   return (
     <div className="font-bodyFont bg-gray-100">
       <RouterProvider router={router}></RouterProvider>
-
     </div>
   );
 }
