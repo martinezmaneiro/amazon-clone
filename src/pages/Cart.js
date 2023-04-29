@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteItem, resetCart, decreseQuantity, increseQuantity } from '../redux/amazonSlice';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { Link } from 'react-router-dom';
 import { emptyCart } from '../assets/index';
+import { motion } from 'framer-motion';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Cart =()=> {
     const dispatch = useDispatch();
@@ -90,7 +92,11 @@ const Cart =()=> {
                     </div>
                 </div>
             ):(
-                <div className='flex justify-center items-center gap-4 py-10'>
+                <motion.div
+                    initial={{ y: 70, opacity:0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className='flex justify-center items-center gap-4 py-10'>
                     <div>
                         <img className='w-80 rounded-lg p-4 mx-auto' src={emptyCart} alt='empty cart image'/>
                     </div>
@@ -99,11 +105,13 @@ const Cart =()=> {
                         <p className='text-sm text-center'>
                             Your Shopping Cart lives to serve. Give it a purpose - fill it with books, electronics, videos, etc. and make it happy.
                         </p>
-                        <button className='mt-6 bg-yellow-400 rounded-md cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 px-8 py-2 font-titleFont font-semibold text-lg'>
-                            Continue Shopping
-                        </button>
+                        <Link to='/'>
+                            <button className='mt-6 bg-yellow-400 rounded-md cursor-pointer hover:bg-yellow-500 active:bg-yellow-700 px-8 py-2 font-titleFont font-semibold text-lg'>
+                                Continue Shopping
+                            </button>
+                        </Link>
                     </div>
-                </div>
+                </motion.div>
             )
             }
         </div>
