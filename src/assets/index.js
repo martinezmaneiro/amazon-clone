@@ -4,6 +4,7 @@ import bannerImgTwo from "./banner/bannerImgOne.jpg";
 import bannerImgThree from "./banner/bannerImgThree.jpg";
 import bannerImgFour from "./banner/bannerImgFour.jpg";
 import bannerImgFive from "./banner/bannerImgFive.jpg";
+import emptyCart from "./emptyCart.png";
 import usa from "./usa.webp";
 
 export {
@@ -14,4 +15,5 @@ export {
   bannerImgFour,
   bannerImgFive,
   usa,
+  emptyCart
 };
