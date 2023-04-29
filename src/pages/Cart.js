@@ -1,8 +1,17 @@
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Cart =()=> {
     const products = useSelector((state)=>state.amazonReducer.products);
+    const [totalPrice, setTotalPrice] = useState('')
+    useEffect(()=>{
+        let total =0;
+        products.map((item)=>{
+            total += item.price * item.quantity;
+            return setTotalPrice(total.toFixed(2));
+        })
+    },[products]);
 
     return (
         <div className='w-full bg-gray-100 p-4'>
@@ -38,6 +47,11 @@ const Cart =()=> {
                             </div>
                         ))}
                     </div>
+                    <div className='w-full py-2'>
+                        <button className='px-10 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide'>
+                            Clear Cart
+                        </button>
+                    </div>
                 </div>
                 <div  className='w-full h-52 bg-white col-span-1 flex flex-col justify-center items-center p-4'>
                     <div>
@@ -47,9 +61,9 @@ const Cart =()=> {
                         </p>
                     </div>
                     <div>
-                        <p className='font-semibold px-10 py-1 flex flex-col items-center justify-between'>
+                        <p className='font-semibold px-10 py-1 flex flex-col items-center justify-between gap-2'>
                             Total:
-                            <span className='text-lg font-bold'>$50</span>
+                            <span className='text-lg font-bold'>${totalPrice}</span>
                         </p>
                     </div>
                     <button className='w-full font-titleFont font-medium text-base bg-gradient-to-tr from-yellow-400 to-yellow-200 border hover:from-yellow-300 hover:to-yellow border-yellow-500 hover:border-yellow-700 active:bg-gradient-to-bl active:from-yellow-400 active:to-yellow-500 duration-200 py-1.5 rounded-md mt-3'>
