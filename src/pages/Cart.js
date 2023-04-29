@@ -18,7 +18,7 @@ const Cart =()=> {
                                 <div className='w-1/5'>
                                     <img className='w-full h-44 object-contain' src={item.image} alt='product image'/>
                                 </div>
-                                <div className='w-3/5'>
+                                <div className='w-4/5'>
                                     <h2 className='font-semibold text-lg'>{item.title}</h2>
                                     <p className='text-sm'>{item.description}</p>
                                     <p className='text-base'>
@@ -33,7 +33,7 @@ const Cart =()=> {
                                     <button className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>Delete Item</button>
                                 </div>
                                 <div>
-                                    <p className='text-lg font-titleFont font-semibold'>{item.price * item.quantity}</p>
+                                    <p className='text-lg font-titleFont font-semibold'>${item.price * item.quantity}</p>
                                 </div>
                             </div>
                         ))}
