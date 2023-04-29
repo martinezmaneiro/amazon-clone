@@ -11,7 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Header =()=> {
     const [showAll, setShowAll] = useState(false);
-    const products = useSelector((state)=>state.amazonReducer.products)
+    const products = useSelector((state)=>state.amazonReducer.products);
 
     return (
         <div className='w-full sticky top-0 z-50'>

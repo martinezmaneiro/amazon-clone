@@ -5,6 +5,7 @@ import {
   Outlet,
   Route,
   RouterProvider,
+  ScrollRestoration,
 } from 'react-router-dom';
 import { productsData } from "./api/api";
 import Header from './components/header/Header';
@@ -16,11 +17,12 @@ const Layout =()=> {
   return (
     <div>
       <Header/>
+      <ScrollRestoration/>
       <Outlet/>
       <Footer/>
     </div>
   )
-}
+};
 
 function App() {
   const router = createBrowserRouter(

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem, resetCart, decreseQuantity, increseQuantity } from '../redux/amazonSlice';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Cart =()=> {
+    const dispatch = useDispatch();
     const products = useSelector((state)=>state.amazonReducer.products);
     const [totalPrice, setTotalPrice] = useState('')
     useEffect(()=>{
@@ -19,7 +21,7 @@ const Cart =()=> {
                 <div  className='w-full h-full bg-white px-4 col-span-4'>
                     <div className='font-titleFont flex items-center justify-between border-b-[1px] border-b-gray-400 py-3'>
                         <h2 className='text-3xl font-normal'>Shopping Cart</h2>
-                        <h4 className='text-xl font-normal'>Subtitle</h4>
+                        <h4 className='text-xl font-normal'>{/*description?*/}</h4>
                     </div>
                     <div>
                         { products.map((item)=> (
@@ -35,11 +37,23 @@ const Cart =()=> {
                                     </p>
                                     <div className='bg-[#F0F2F2] flex justify-center items-center gap-1 w-24 py-1 text-center drop-shadow-lg rounded-md'>
                                         <p>Qty:</p>
-                                        <p className='cursor-pointer bg-gray-200 px-1 rounded-md hover:bg-gray-400 duration-300'>-</p>
+                                        <p
+                                            onClick={()=>dispatch(decreseQuantity(item.id))}
+                                            className='cursor-pointer bg-gray-200 px-1 rounded-md hover:bg-gray-400 duration-300'>
+                                            -
+                                        </p>
                                         <p>{item.quantity}</p>
-                                        <p className='cursor-pointer bg-gray-200 px-1 rounded-md hover:bg-gray-400 duration-300'>+</p>
+                                        <p
+                                            onClick={()=>dispatch(increseQuantity(item.id))}
+                                            className='cursor-pointer bg-gray-200 px-1 rounded-md hover:bg-gray-400 duration-300'>
+                                            +
+                                        </p>
                                     </div>
-                                    <button className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>Delete Item</button>
+                                    <button
+                                        onClick={()=>dispatch(deleteItem(item.id))}
+                                        className='bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-700 active:bg-red-900 duration-300'>
+                                        Delete Item
+                                    </button>
                                 </div>
                                 <div>
                                     <p className='text-lg font-titleFont font-semibold'>${item.price * item.quantity}</p>
@@ -48,7 +62,9 @@ const Cart =()=> {
                         ))}
                     </div>
                     <div className='w-full py-2'>
-                        <button className='px-10 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide'>
+                        <button
+                            onClick={()=> dispatch(resetCart())}
+                            className='px-10 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide'>
                             Clear Cart
                         </button>
                     </div>

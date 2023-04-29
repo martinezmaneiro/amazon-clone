@@ -10,13 +10,13 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Products = () => {
     const data = useLoaderData();
-    const productData = data.data;
+    const productsData = data.data;
     const dispatch = useDispatch();
 
     return (
         <div className='max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-10 px-4'>
             {
-                productData.map((item) => (
+                productsData.map((item) => (
                     <div key={item.id} className='bg-white h-auto border-[1px] border-gray-200 py-8 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4'>
                         <span className='text-xs capitalize italic absolute top-2 right-2 text-grey-500'>{item.category}</span>
                         <div className='w-full h-auto flex items-center justify-center relative group'>
