@@ -13,6 +13,7 @@ import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import SignIn from './pages/SignIn';
+import Registration from './pages/Registration';
 
 const Layout =()=> {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}></Route>
         </Route>
         <Route path='/signin' element={<SignIn/>}></Route>
+        <Route path='/registration' element={<Registration/>}></Route>
       </Route>
     )
   );

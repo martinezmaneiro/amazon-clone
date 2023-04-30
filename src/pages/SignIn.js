@@ -1,7 +1,13 @@
 import { darkLogo } from '../assets/index';
+import { Link } from 'react-router-dom';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const SignIn =()=> {
+
+    /*const handleLogin =(e)=> {
+        e.preventDefault()
+    }*/
+
     return (
         <div className='w-full'>
             <div className='w-full bg-gray-100 pb-10'>
@@ -19,8 +25,8 @@ const SignIn =()=> {
                                 <input className='w-full lowercase py-1 border border-zinc-400 px-2 text-base rounded-sm outline-none focus-within:border-[#E77600] focus-within:shadow-amazonInput duratin-100' type='password' />
                             </div>
                             <button
-                                onClick={(e)=>e.preventDefault()}
-                                className='w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#F0C14B] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'
+                                //onClick={handleLogin}
+                                className='w-full py-1.5 text-sm font-normal rounded-sm bg-gradient-to-t from-[#F7DF45] to-[#F0C14B] hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'
                             >
                                 Continue
                             </button>
@@ -33,11 +39,12 @@ const SignIn =()=> {
                         <span className="w-1/3 text-center">New to Amazon?</span>
                         <span className="w-1/3 h-[1px] bg-zinc-400 inline-flex"></span>
                     </p>
-                    <button
-                        onClick={(e)=>e.preventDefault()}
-                        className='w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
-                        Create your Amazon account
-                    </button>
+                    <Link to='/registration' className='w-full'>
+                        <button
+                            className='w-full py-1.5 mt-4 text-sm font-normal rounded-sm bg-gradient-to-t from-slate-200 to-slate-100 hover:bg-gradient-to-b border border-zinc-400 active:border-yellow-800 active:shadow-amazonInput'>
+                            Create your Amazon account
+                        </button>
+                    </Link>
                 </form>
             </div>
             <div className='w-full bg-gradient-to-t from-white via-white to-zinc-200 flex flex-col gap-4 justify-center items-center py-10'>
