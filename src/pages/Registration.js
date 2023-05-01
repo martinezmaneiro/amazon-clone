@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { darkLogo } from "../assets/index";
+import { RotatingLines } from 'react-loader-spinner';
+import { motion } from 'framer-motion';
 
 const Registration = () => {
+    const navigate = useNavigate();
     const auth = getAuth();
     const [clientName, setClientName] = useState("");
     const [email, setEmail] = useState("");
@@ -16,6 +19,9 @@ const Registration = () => {
     const [errPassword, setErrPassword] = useState("");
     const [errConfirmPassword, setErrConfirmPassword] = useState("");
     const [firebaseErr, setFirebaseErr] = useState('');
+
+    const [loading, setLoading] = useState(false);
+    const [successMsg, setSuccessMsg] = useState('');
 
     const handleName = (e) => {
         setClientName(e.target.value);
@@ -77,9 +83,15 @@ const Registration = () => {
             confirmPassword &&
             confirmPassword === password
             ) {
+                setLoading(true);
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
                         const user = userCredential.user;
+                        setLoading(false);
+                        setSuccessMsg('Account Created Successfully!');
+                        setTimeout(()=>{
+                            navigate('/signin')
+                        }, 3000);
                     }).catch((error) => {
                         const errorCode = error.code;
                         if(errorCode.includes('auth/email-already-in-use')){
@@ -193,6 +205,33 @@ const Registration = () => {
                 >
                     Continue
                 </button>
+                {
+                    loading && (
+                        <div className="flex justify-center">
+                            <RotatingLines
+                                strokeColor="#FEBD69"
+                                strokeWidth="5"
+                                animationDuration="0.75"
+                                width="50"
+                                visible={true}
+                            />
+                        </div>
+                    )
+                }
+                {
+                    successMsg && (
+                        <div>
+                            <motion.p
+                                initial={{ y: 10, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className='text-base font-titleFont font-semibold text-green-500 border-[1px] border-green-500 px-2 text-center'
+                                >
+                                    {successMsg}
+                            </motion.p>
+                        </div>
+                    )
+                }
                 </div>
                 <p className="text-xs text-black leading-4 mt-4">
                 By Continuing, you agree to Amazon's{" "}
