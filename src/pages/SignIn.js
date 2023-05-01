@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUserInfo } from '../redux/amazonSlice';
 import { darkLogo } from '../assets/index';
 import { RotatingLines } from 'react-loader-spinner';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
@@ -8,6 +10,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 const SignIn = () => {
     const auth = getAuth();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errEmail, setErrEmail] = useState("");
@@ -41,6 +44,12 @@ const SignIn = () => {
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) =>{
                     const user = userCredential.user;
+                    dispatch(setUserInfo({
+                        _id: user.uid,
+                        userName: user.displayName,
+                        email: user.email,
+                        image: user.photoURL,
+                    }));
                     setLoading(false);
                     setSuccessMsg('Logged in Successfully! Welcome back');
                     setTimeout(()=> {
