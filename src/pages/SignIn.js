@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { darkLogo } from '../assets/index';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 const SignIn = () => {
+    const auth = getAuth();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errEmail, setErrEmail] = useState("");
@@ -28,6 +30,13 @@ const SignIn = () => {
             setErrPassword("Enter your password");
         }
         if (email && password) {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) =>{
+                    const user = userCredential.user;
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                });
             setEmail("")
             setPassword("")
         }

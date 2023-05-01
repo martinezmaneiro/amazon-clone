@@ -96,6 +96,7 @@ const Registration = () => {
                         const errorCode = error.code;
                         if(errorCode.includes('auth/email-already-in-use')){
                             setFirebaseErr('Email already in use, try another one');
+                            setLoading(false);
                         }
                     });
                 setClientName("");
