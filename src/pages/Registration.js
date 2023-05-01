@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { darkLogo } from "../assets/index";
 
@@ -15,6 +15,7 @@ const Registration = () => {
     const [errEmail, setErrEmail] = useState("");
     const [errPassword, setErrPassword] = useState("");
     const [errConfirmPassword, setErrConfirmPassword] = useState("");
+    const [firebaseErr, setFirebaseErr] = useState('');
 
     const handleName = (e) => {
         setClientName(e.target.value);
@@ -49,6 +50,7 @@ const Registration = () => {
         } else {
             if (!emailValidation(email)) {
                 setErrEmail("Enter a valid email");
+                setFirebaseErr('');
             }
         }
         if (!password) {
@@ -80,13 +82,16 @@ const Registration = () => {
                         const user = userCredential.user;
                     }).catch((error) => {
                         const errorCode = error.code;
-                        const errorMessage = error.message;
+                        if(errorCode.includes('auth/email-already-in-use')){
+                            setFirebaseErr('Email already in use, try another one');
+                        }
                     });
                 setClientName("");
                 setEmail("");
                 setPassword("");
                 setConfirmPassword("");
                 setErrConfirmPassword("");
+                setFirebaseErr('');
             };
     };
     return (
@@ -134,6 +139,14 @@ const Registration = () => {
                         !
                         </span>
                         {errEmail}
+                    </p>
+                    )}
+                    {firebaseErr && (
+                    <p className="text-red-600 text-xs font-semibold tracking-wide flex items-center gap-2 -mt-1.5">
+                        <span className="italic font-titleFont font-extrabold text-base">
+                        !
+                        </span>
+                        {firebaseErr}
                     </p>
                     )}
                 </div>
