@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { darkLogo } from "../assets/index";
 
 const Registration = () => {
+    const auth = getAuth();
     const [clientName, setClientName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -73,6 +75,13 @@ const Registration = () => {
             confirmPassword &&
             confirmPassword === password
             ) {
+                createUserWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                    });
                 setClientName("");
                 setEmail("");
                 setPassword("");
