@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const FooterTop =()=> {
-
+    {/*if userInfo is truthy (the user is logged in), this component will not render the signin/register container*/}
     const userInfo = useSelector((state)=> state.amazonReducer.userInfo);
 
     return (
