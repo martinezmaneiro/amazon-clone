@@ -1,11 +1,11 @@
-import logo from "./logo.png";
-import darkLogo from "./darkLogo.png";
-import bannerImgOne from "./banner/bannerImgTwo.jpg";
-import bannerImgTwo from "./banner/bannerImgOne.jpg";
-import bannerImgThree from "./banner/bannerImgThree.jpg";
-import bannerImgFour from "./banner/bannerImgFour.jpg";
-import bannerImgFive from "./banner/bannerImgFive.jpg";
-import emptyCart from "./emptyCart.png";
+import logo from "./logo.webp";
+import darkLogo from "./darkLogo.webp";
+import bannerImgOne from "./banner/bannerImgTwo.webp";
+import bannerImgTwo from "./banner/bannerImgOne.webp";
+import bannerImgThree from "./banner/bannerImgThree.webp";
+import bannerImgFour from "./banner/bannerImgFour.webp";
+import bannerImgFive from "./banner/bannerImgFive.webp";
+import emptyCart from "./emptyCart.webp";
 import usa from "./usa.webp";
 
 export {

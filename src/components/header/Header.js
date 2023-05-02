@@ -64,7 +64,7 @@ const Header =()=> {
                             </div>
                         )}
                     </span>
-                    <input className='h-full text-base text-amazon_blue flex-grow outline-none border-none px-2' type='text'/>
+                    <input className='h-full text-base text-amazon_blue flex-grow outline-none border-none px-2' type='text' aria-label="search bar"/>
                     <span className='w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#F3A847] duration-300  text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md'>
                         <SearchIcon/>
                     </span>
