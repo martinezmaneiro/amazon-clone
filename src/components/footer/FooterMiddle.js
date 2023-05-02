@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
 import { middleList } from "../../constants/index";
 import FooterMiddleList from "./FooterMiddleList";
 import { logo, usa } from "../../assets/index";
+import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 
 const FooterMiddle =()=> {
     return (
@@ -19,11 +21,16 @@ const FooterMiddle =()=> {
                 </div>
             </div>
             <div className='w-full flex gap-6 items-center justify-center py-6'>
-                <div>
-                    <img className='w-20 pt-3' src={logo} alt='amazon logo'/>
-                </div>
+                <Link to='/'>
+                    <div>
+                        <img className='w-20 pt-3' src={logo} alt='amazon logo'/>
+                    </div>
+                </Link>
                 <div className='flex gap-2'>
-                    <p className='flex gap-1 items-center justify-center border border-gray-500 hover:border-amazon_yellow cursor-pointer duration-200 px-2 py-1'>English</p>
+                    <p className='flex gap-1 items-center justify-center border border-gray-500 hover:border-amazon_yellow cursor-pointer duration-200 px-2 py-1'>
+                        <span><LanguageOutlinedIcon/></span>
+                        English
+                    </p>
                 </div>
                 <div  className='flex gap-1 items-center justify-center border border-gray-500 hover:border-amazon_yellow cursor-pointer duration-200 px-2 py-1'>
                     <img className='w-6' src={usa} alt='flag image'/>

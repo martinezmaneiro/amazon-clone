@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logo } from '../../assets/index';
+import { usa } from '../../assets/index';
 import { allItems } from '../../constants/index';
 import { Link } from 'react-router-dom';
 import { getAuth, signOut } from 'firebase/auth';
@@ -63,6 +64,10 @@ const Header =()=> {
                     <span className='w-12 h-full flex items-center justify-center bg-amazon_yellow hover:bg-[#F3A847] duration-300  text-amazon_blue cursor-pointer rounded-tr-md rounded-br-md'>
                         <SearchIcon/>
                     </span>
+                </div>
+                <div className='hidden mdl:flex items-start justify-center headerHover relative px-4 py-3'>
+                    <img className='w-6' src={usa} alt='flag image'/>
+                    <p className='text-sm font-semibold -mt-1 text-whiteText hidden mdl:inline-flex ml-2'>EN</p>
                 </div>
                 <Link to='/signin'>
                     <div className='flex flex-col items-start justify-center headerHover'>
