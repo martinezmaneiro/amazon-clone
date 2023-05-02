@@ -9,6 +9,7 @@ import {
 } from '../../assets/index';
 
 const Banner =()=> {
+    {/*React-slick library carousel. See more examples and config documentation at: https://react-slick.neostack.com/*/}
     const [dotActive, setDotActive] = useState(0)
     const settings = {
         dots: true,
@@ -23,19 +24,19 @@ const Banner =()=> {
         appendDots: (dots) => (
             <div
                 style={{
-                position: "absolute",
-                top: "70%",
-                left: "50%",
-                transform: "translate(-50%, 0)",
-                width: "210px",
+                position: 'absolute',
+                top: '70%',
+                left: '50%',
+                transform: 'translate(-50%, 0)',
+                width: '210px',
                 }}
             >
                 <ul
                     style={{
-                    display: "flex",
-                    width: "100%",
-                    justifyContent: "space-between",
-                    alignItems: "center",
+                    display: 'flex',
+                    width: '100%',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
                     }}
                 >
                 {dots}
