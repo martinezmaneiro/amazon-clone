@@ -96,6 +96,7 @@ const Registration = () => {
                 //Firebase Registration function
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
+                        //adding clientName to the user's data in Firebase DB
                         updateProfile(auth.currentUser,{
                             displayName: clientName
                         })

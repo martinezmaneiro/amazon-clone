@@ -16,9 +16,13 @@ const SignIn = () => {
     const [errEmail, setErrEmail] = useState("");
     const [errPassword, setErrPassword] = useState("");
 
+    //error messages
     const [userEmailErr, setUserEmailErr] = useState('');
     const [userPassErr, setUserPassErr] = useState('');
+
+    //loading state for spinner conditional render
     const [loading, setLoading] = useState(false);
+    //successMessage state for it's conditional render
     const [successMsg, setSuccessMsg] = useState('');
 
     const handleEmail = (e) => {
@@ -31,6 +35,7 @@ const SignIn = () => {
         setErrPassword("");
     };
 
+    //Login function
     const handleLogin = (e) => {
         e.preventDefault();
         if (!email) {
@@ -41,9 +46,11 @@ const SignIn = () => {
         }
         if (email && password) {
             setLoading(true)
+            //Firebase login
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) =>{
                     const user = userCredential.user;
+                    //Logged in user information gathered from the Firebase DB
                     dispatch(setUserInfo({
                         _id: user.uid,
                         userName: user.displayName,
@@ -52,6 +59,7 @@ const SignIn = () => {
                     }));
                     setLoading(false);
                     setSuccessMsg('Logged in Successfully! Welcome back');
+                    //navigate to the homepage after 2 seconds
                     setTimeout(()=> {
                         navigate('/')
                     }, 2000)
