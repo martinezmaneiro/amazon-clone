@@ -7,22 +7,29 @@ import { RotatingLines } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 
 const Registration = () => {
+    //React-router-dom hook to change location
     const navigate = useNavigate();
     const auth = getAuth();
+
+    //client registration information
     const [clientName, setClientName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
+    //error messages
     const [errClientName, setErrClientName] = useState("");
     const [errEmail, setErrEmail] = useState("");
     const [errPassword, setErrPassword] = useState("");
     const [errConfirmPassword, setErrConfirmPassword] = useState("");
     const [firebaseErr, setFirebaseErr] = useState('');
 
+    //loading state for spinner conditional render
     const [loading, setLoading] = useState(false);
+    //successMessage state for it's conditional render
     const [successMsg, setSuccessMsg] = useState('');
 
+    //handle functions
     const handleName = (e) => {
         setClientName(e.target.value);
         setErrClientName("");
@@ -40,12 +47,14 @@ const Registration = () => {
         setErrConfirmPassword("");
     };
 
+    //email validation over regex
     const emailValidation = (email) => {
         return String(email)
         .toLowerCase()
         .match(/^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/);
     };
 
+    //submit button registration function
     const handleRegistration = (e) => {
         e.preventDefault();
         if (!clientName) {
@@ -84,6 +93,7 @@ const Registration = () => {
             confirmPassword === password
             ) {
                 setLoading(true);
+                //Firebase Registration function
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
                         updateProfile(auth.currentUser,{
@@ -102,6 +112,7 @@ const Registration = () => {
                             setLoading(false);
                         }
                     });
+
                 setClientName("");
                 setEmail("");
                 setPassword("");
