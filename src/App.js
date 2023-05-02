@@ -7,7 +7,7 @@ import {
   RouterProvider,
   ScrollRestoration,
 } from 'react-router-dom';
-import { productsData } from "./api/api";
+import { productsData } from './api/api';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 import Home from './pages/Home';
@@ -19,6 +19,8 @@ const Layout =()=> {
   return (
     <div>
       <Header/>
+      {/*React Router component that emulates the browser's scroll restoration on location changes after loaders have completed,
+      to ensure the scroll position is restored to the right spot.*/}
       <ScrollRestoration/>
       <Outlet/>
       <Footer/>
@@ -41,7 +43,7 @@ function App() {
   );
 
   return (
-    <div className="font-bodyFont bg-gray-100">
+    <div className='font-bodyFont bg-gray-100'>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
