@@ -10,7 +10,9 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Products = () => {
     const data = useLoaderData();
+    //accessing the products data from the api response
     const productsData = data.data;
+    //React-redux's useDispatch hook used to trigger the addToCart action (line 49)
     const dispatch = useDispatch();
 
     return (
@@ -46,6 +48,7 @@ const Products = () => {
                             <button
                                 onClick={() =>
                                     dispatch(addToCart({
+                                        /*action payload*/
                                         id: item.id,
                                         title: item.title,
                                         description: item.description,
