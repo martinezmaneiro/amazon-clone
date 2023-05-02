@@ -17,9 +17,13 @@ const Header =()=> {
     const auth = getAuth();
     const dispatch = useDispatch();
     const [showAll, setShowAll] = useState(false);
+    /*information gathered from our global state (the store) for conditional rendering of:
+    -> the number of items in our cart (line 23)
+    -> the user's username*/
     const products = useSelector((state)=>state.amazonReducer.products);
     const userInfo = useSelector((state)=> state.amazonReducer.userInfo);
 
+    /*log out function adapted from Firebase's documentation*/
     const handleLogout =()=>{
         signOut(auth)
             .then(()=> {
