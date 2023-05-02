@@ -7,8 +7,12 @@ import { motion } from 'framer-motion';
 import SideNavContent from './SideNavContent';
 
 const HeaderBottom =()=> {
+    /*this hook is used to reference a value without causing re-renders. In this particular case it will reference the sidebar element*/
     const ref = useRef();
+    /*this state hook is used for the conditional rendering of the sidebar div container element*/
     const [sidebar, setSidebar] = useState(false);
+    /*within this useEffect hook we create a function that sets the sidebar display (by conditional rendering in the return statement below) to false
+    whenever the container is clicked*/
     useEffect(() => {
         document.body.addEventListener('click', (e) =>{
             if(e.target.contains(ref.current)){
@@ -16,6 +20,7 @@ const HeaderBottom =()=> {
             }
         })
     }, [ref, sidebar]);
+    /*we call the useSelector hook to bring the userInfo from the global state so we can display the user's username on the sidebar*/
     const userInfo = useSelector((state)=> state.amazonReducer.userInfo);
 
     return (
@@ -31,6 +36,7 @@ const HeaderBottom =()=> {
             {sidebar && (
                 <div className='w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50'>
                     <div className='w-full h-full relative'>
+                        {/*framer-motion effect for a smooth initial translation*/}
                         <motion.div ref={ref} initial={{x:-500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.5}} className='md:w-[350px] w-[100%] h-auto md:h-[100%] bg-white border border-black'>
                             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
                                 <AccountCircleIcon/>
