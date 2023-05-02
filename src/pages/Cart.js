@@ -21,21 +21,20 @@ const Cart =()=> {
     return (
         <div className='w-full bg-gray-100 p-4'>
             { products.length > 0 ? (
-                <div  className='container mx-auto h-auto grid grid-cols-5 gap-8'>
+                <div  className='container mx-auto h-auto grid grid-cols-2 mdl:grid-cols-5 mdl:gap-8'>
                     <div  className='w-full h-full bg-white px-4 col-span-4'>
                         <div className='font-titleFont flex items-center justify-between border-b-[1px] border-b-gray-400 py-3'>
-                            <h2 className='text-3xl font-normal'>Shopping Cart</h2>
-                            <h4 className='text-xl font-normal'>{/*description?*/}</h4>
+                            <h2 className='text-mdl lgl:text-3xl font-normal'>Shopping Cart</h2>
                         </div>
-                        <div>
+                        <div className='mb-5'>
                             { products.map((item)=> (
                                 <div key={item.id} className='w-full border-b-[1px] border-b-gray-300 p-4 flex items-center gap-6'>
                                     <div className='w-1/5'>
                                         <img className='w-full h-44 object-contain' src={item.image} alt='product image'/>
                                     </div>
                                     <div className='w-4/5'>
-                                        <h2 className='font-semibold text-lg'>{item.title}</h2>
-                                        <p className='text-sm'>{item.description}</p>
+                                        <h2 className='font-semibold text-mdl lgl:text-lg'>{item.title}</h2>
+                                        <p className='text-sm hidden lgl:flex'>{item.description}</p>
                                         <p className='text-base'>
                                             Unit Price <span className='font-semibold'>${item.price}</span>
                                         </p>
@@ -65,17 +64,17 @@ const Cart =()=> {
                                 </div>
                             ))}
                         </div>
-                        <div className='w-full py-2'>
+                        <div className='w-[full] py-2'>
                             <button
                                 onClick={()=> dispatch(resetCart())}
-                                className='px-10 py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-lg tracking-wide'>
+                                className='px-4 lgl:px-10 py:1 lgl:py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-base lgl:text-lg tracking-wide'>
                                 Clear Cart
                             </button>
                         </div>
                     </div>
-                    <div  className='w-full h-52 bg-white col-span-1 flex flex-col justify-center items-center p-4'>
+                    <div  className='w-[200%] mdl:w-[100%] h-auto lg:h-80 xl:h-52 bg-white flex flex-col xl:justify-center items-center p-4'>
                         <div>
-                            <p className='flex gap-2 items-start text-sm'>
+                            <p className='flex lg:gap-2 items-start text-sm'>
                                 <span className='bg-white text-green-500 rounded-full'><CheckCircleIcon/></span>
                                 Your order quialifies for FREE Shipping Choose this option at checkout. See details...
                             </p>
