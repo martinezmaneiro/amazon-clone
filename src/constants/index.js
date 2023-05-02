@@ -1,3 +1,4 @@
+/*required data for mapping elements into render*/
 export const allItems = [
     {
     _id:'101', title: 'All Departments'
