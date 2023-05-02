@@ -1,5 +1,6 @@
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+//props are taken from parent component HeaderBottom
 const SideNavContent =({title, one, two, three})=> {
     return (
         <div className='py-3 border-b-[1px] border-b-gray-300'>
