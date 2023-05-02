@@ -22,7 +22,7 @@ const Products = () => {
                     <div key={item.id} className='bg-white h-auto border-[1px] border-gray-200 py-8 z-30 hover:border-transparent shadow-none hover:shadow-testShadow duration-200 relative flex flex-col gap-4'>
                         <span className='text-xs capitalize italic absolute top-2 right-2 text-grey-500'>{item.category}</span>
                         <div className='w-full h-auto flex items-center justify-center relative group'>
-                            <img className='w-52 h-64 object-contain' src={item.image} alt='product image'/>
+                            <img className='w-52 h-64 object-contain' src={item.image} alt='product'/>
                             <ul className='w-full h-36 bg-gray-100 absolute bottom-[-170px] flex flex-col items-end justify-center gap-2 font-titleFont px-2 border-l border-r group-hover:bottom-0 duration-700'>
                                 <li className='productLi'>Compare<span><ApiIcon/></span></li>
                                 <li className='productLi'>Add to Cart<span><ShoppingCartIcon/></span></li>

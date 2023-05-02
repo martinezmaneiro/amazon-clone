@@ -33,7 +33,7 @@ const Cart =()=> {
                             { products.map((item)=> (
                                 <div key={item.id} className='w-full border-b-[1px] border-b-gray-300 p-4 flex items-center gap-6'>
                                     <div className='w-1/5'>
-                                        <img className='w-full h-44 object-contain' src={item.image} alt='product image'/>
+                                        <img className='w-full h-44 object-contain' src={item.image} alt='product'/>
                                     </div>
                                     <div className='w-4/5'>
                                         <h2 className='font-semibold text-mdl lgl:text-lg'>{item.title}</h2>
@@ -103,7 +103,7 @@ const Cart =()=> {
                     transition={{ delay: 0.5, duration: 0.5 }}
                     className='flex justify-center items-center gap-4 py-10'>
                     <div>
-                        <img className='w-80 rounded-lg p-4 mx-auto' src={emptyCart} alt='empty cart image'/>
+                        <img className='w-80 rounded-lg p-4 mx-auto' src={emptyCart} alt='empty cart'/>
                     </div>
                     <div className='w-96 p-4 bg-white flex flex-col items-center rounded-md shadow-lg'>
                         <h1 className='font-titleFont text-xl font-bold'>Your Cart feels lonely.</h1>

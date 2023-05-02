@@ -5,7 +5,7 @@ const initialState = {
     userInfo: null,
 };
 
-{/*setting up the reducers for products info and user logging management*/}
+//setting up the reducers for products info and user logging management
 export const amazonSlice = createSlice({
     name:'amazon',
     initialState,

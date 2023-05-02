@@ -9,7 +9,7 @@ import {
 } from '../../assets/index';
 
 const Banner =()=> {
-    {/*React-slick library carousel. See more examples and config documentation at: https://react-slick.neostack.com/*/}
+    /*React-slick library carousel. See more examples and config documentation at: https://react-slick.neostack.com/*/
     const [dotActive, setDotActive] = useState(0)
     const settings = {
         dots: true,
@@ -151,19 +151,19 @@ const Banner =()=> {
             <div className='w-full h-full relative'>
                 <Slider {...settings}>
                     <div>
-                        <img src={bannerImgOne} alt='banner image one'/>
+                        <img src={bannerImgOne} alt='banner one'/>
                     </div>
                     <div>
-                        <img src={bannerImgTwo} alt='banner image two'/>
+                        <img src={bannerImgTwo} alt='banner two'/>
                     </div>
                     <div>
-                        <img src={bannerImgThree} alt='banner image three'/>
+                        <img src={bannerImgThree} alt='banner three'/>
                     </div>
                     <div>
-                        <img src={bannerImgFour} alt='banner image four'/>
+                        <img src={bannerImgFour} alt='banner four'/>
                     </div>
                     <div>
-                        <img src={bannerImgFive} alt='banner image five'/>
+                        <img src={bannerImgFive} alt='banner five'/>
                     </div>
                 </Slider>
             </div>
