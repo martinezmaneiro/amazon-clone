@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import amazonReducer from '../redux/amazonSlice';
 
+/*Redux-persist saves the application's Redux state object to AsyncStorage*/
 const persistConfig = {
     key: "root",
     version: 1,
@@ -19,7 +20,7 @@ const persistConfig = {
 };
 
 const persistedReducer = persistReducer(persistConfig, amazonReducer);
-
+/*Store modifications to use Redux-persist*/
 export const store = configureStore({
     reducer: { amazonReducer: persistedReducer },
     middleware: (getDefaultMiddleware) =>
