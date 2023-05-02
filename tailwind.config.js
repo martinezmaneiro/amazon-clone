@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    //setting tailwind css custom constants
     extend: {
       maxWidth:{
         container:"1440px"
