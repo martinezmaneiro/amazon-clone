@@ -68,7 +68,7 @@ const Header =()=> {
                     <div className='flex flex-col items-start justify-center headerHover'>
                         {
                             userInfo?(
-                                <p className='text-sm text-gray-100 font-medium'>
+                                <p className='text-sm text-gray-100 font-medium capitalize'>
                                     {userInfo.userName}
                                 </p>
                             ):(

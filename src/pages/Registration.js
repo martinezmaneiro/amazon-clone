@@ -86,6 +86,9 @@ const Registration = () => {
                 setLoading(true);
                 createUserWithEmailAndPassword(auth, email, password)
                     .then((userCredential) => {
+                        updateProfile(auth.currentUser,{
+                            displayName: clientName
+                        })
                         const user = userCredential.user;
                         setLoading(false);
                         setSuccessMsg('Account Created Successfully!');

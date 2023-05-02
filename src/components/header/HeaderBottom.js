@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -15,6 +16,7 @@ const HeaderBottom =()=> {
             }
         })
     }, [ref, sidebar]);
+    const userInfo = useSelector((state)=> state.amazonReducer.userInfo);
 
     return (
         <div className='w-full px-4 h-[36px] bg-amazon_light text-white flex items-center'>
@@ -32,7 +34,12 @@ const HeaderBottom =()=> {
                         <motion.div ref={ref} initial={{x:-500, opacity:0}} animate={{x:0, opacity:1}} transition={{duration:0.5}} className='md:w-[350px] w-[100%] h-auto md:h-[100%] bg-white border border-black'>
                             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
                                 <AccountCircleIcon/>
-                                <h3 className='font-titleFont font-bold text-lg tracking-wide'>Hello, Sign In</h3>
+                                {
+                                    userInfo?
+                                        (<h3 className='font-titleFont font-bold text-lg tracking-wide capitalize'>Hello, {userInfo.userName}</h3>)
+                                        :
+                                        (<h3 className='font-titleFont font-bold text-lg tracking-wide'>Hello, Sign In</h3>)
+                                }
                             </div>
                             <SideNavContent title='Digital Content & Devices' one='Amazon Music' two='Kindle E--readers & Books' three='Amazon Appstore'/>
                             <SideNavContent title='Shop By Department' one='Electronics' two='Computers' three='Smart Home'/>
