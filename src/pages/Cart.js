@@ -8,8 +8,10 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Cart =()=> {
     const dispatch = useDispatch();
+    //useSelector hook to access the redux's store state
     const products = useSelector((state)=>state.amazonReducer.products);
     const [totalPrice, setTotalPrice] = useState('')
+    //total price setter. Re-renders any time there is a change in state.amazonReducer.products
     useEffect(()=>{
         let total =0;
         products.map((item)=>{
@@ -27,6 +29,7 @@ const Cart =()=> {
                             <h2 className='text-mdl lgl:text-3xl font-normal'>Shopping Cart</h2>
                         </div>
                         <div className='mb-5'>
+                            {/*Cart products list. Maps through the products array in the global state to display the items*/}
                             { products.map((item)=> (
                                 <div key={item.id} className='w-full border-b-[1px] border-b-gray-300 p-4 flex items-center gap-6'>
                                     <div className='w-1/5'>
@@ -40,6 +43,7 @@ const Cart =()=> {
                                         </p>
                                         <div className='bg-[#F0F2F2] flex justify-center items-center gap-1 w-24 py-1 text-center drop-shadow-lg rounded-md'>
                                             <p>Qty:</p>
+                                            {/*Cart items quantity counter actions */}
                                             <p
                                                 onClick={()=>dispatch(decreseQuantity(item.id))}
                                                 className='cursor-pointer bg-gray-200 px-1 rounded-md hover:bg-gray-400 duration-300'>
@@ -65,6 +69,7 @@ const Cart =()=> {
                             ))}
                         </div>
                         <div className='w-[full] py-2'>
+                            {/*this action resets the products array of the global state */}
                             <button
                                 onClick={()=> dispatch(resetCart())}
                                 className='px-4 lgl:px-10 py:1 lgl:py-2 bg-red-500 hover:bg-red-600 active:bg-red-500 text-white rounded-lg font-titleFont font-semibold text-base lgl:text-lg tracking-wide'>
@@ -91,6 +96,7 @@ const Cart =()=> {
                     </div>
                 </div>
             ):(
+                /*framer-motion component for translation effect*/
                 <motion.div
                     initial={{ y: 70, opacity:0 }}
                     animate={{ y: 0, opacity: 1 }}
